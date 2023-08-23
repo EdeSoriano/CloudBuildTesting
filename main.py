@@ -1,5 +1,12 @@
-print("hello World")
+from flask import Flask
+from flask import render_template
 
-name = input("Please enter your name:")
+app = Flask(__name__)
 
-print(name)
+@app.route("/")
+def getMethod():
+    return render_template('index.html')
+
+@app.route("/hello")
+def hellopage():
+    return render_template('hello.html')
