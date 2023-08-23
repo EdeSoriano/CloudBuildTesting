@@ -10,3 +10,6 @@ def getMethod():
 @app.route("/hello")
 def hellopage():
     return render_template('hello.html')
+
+if __name__ == "__main__":
+    app.run(host="127.0.0.1",port="8080",debug=True)
