@@ -9,7 +9,7 @@ steps:
 
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: 'gcloud'
-  args: ['app', 'deploy', --appyaml=testfolder/cron.yaml]
+  args: ['app', 'deploy', --appyaml=cron.yaml]
 
 timeout: '1600s'
 options:
