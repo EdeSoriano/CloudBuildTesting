@@ -1,0 +1,14 @@
+steps:
+- name: 'gcr.io/cloud-builders/git'
+  args: ['clone', 'https://github.com/gerson-henriquez/testRepository.git']
+
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: 'gcloud'
+  args: ['app', 'deploy', --appyaml=testfolder/app.yaml]
+
+
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: 'gcloud'
+  args: ['app', 'deploy', --appyaml=testfolder/cron.yaml]
+
+timeout: '1600s'
