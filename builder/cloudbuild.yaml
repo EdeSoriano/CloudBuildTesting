@@ -2,7 +2,7 @@ steps:
 - name: 'gcr.io/cloud-builders/git'
   args: 
     - clone
-    - -git@github.com:gerson-henriquez/testFolder
+    - git@github.com:gerson-henriquez/testFolder
 
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: 'gcloud'
