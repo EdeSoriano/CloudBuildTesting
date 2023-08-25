@@ -14,4 +14,5 @@ steps:
 timeout: '1600s'
 options:
   logging: CLOUD_LOGGING_ONLY
-  pool: projects/gersonh-pf-dev/locations/us-central1/workerPools/my-private-pool
+  pool: 
+    name: projects/gersonh-pf-dev/locations/us-central1/workerPools/my-private-pool
