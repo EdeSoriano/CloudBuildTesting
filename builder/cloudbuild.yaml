@@ -12,3 +12,5 @@ steps:
   args: ['app', 'deploy', --appyaml=testfolder/cron.yaml]
 
 timeout: '1600s'
+options:
+  logging: CLOUD_LOGGING_ONLY
