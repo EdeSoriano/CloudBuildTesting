@@ -4,7 +4,7 @@ steps:
 
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: 'gsutil'
-  args: [ 'cp', '-r', './testRepository', 'gs://gersonh-pf-dev']
+  args: [ 'cp', '-r', 'testRepository', 'gs://gersonh-pf-dev']
 
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: 'gcloud'
