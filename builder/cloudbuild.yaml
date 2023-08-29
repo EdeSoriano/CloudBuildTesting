@@ -3,8 +3,8 @@ steps:
   args: ['clone', 'https://github.com/gerson-henriquez/testRepository.git']
 
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  entrypoint: 'gcloud'
-  args: ['gsutil', 'cp', './testRepository', 'gs://gersonh-pf-dev']
+  entrypoint: 'gsutil'
+  args: [ 'cp', './testRepository', 'gs://gersonh-pf-dev']
 
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: 'gcloud'
