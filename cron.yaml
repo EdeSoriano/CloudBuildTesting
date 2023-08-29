@@ -1,1 +1,4 @@
 cron:
+- description: "Testing app engine cron jobs"
+  url: /hello
+  schedule: every 1 minutes
