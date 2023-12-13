@@ -10,6 +10,7 @@ steps:
   entrypoint: 'gcloud'
   args: ['app', 'deploy', '--appyaml=app.yaml']
 
+
 timeout: '1600s'
 logsBucket: 'gs://gersonh-bucket'
 options:
