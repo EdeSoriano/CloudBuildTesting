@@ -5,4 +5,4 @@ COPY . .
 
 RUN pip install --no-cache-dir flag -r requirements.txt
 
-CMD ["gunicorn, "-b", "0.0.0.0:8080", "main:app"]
+CMD ["python", "main.py"]
