@@ -16,5 +16,7 @@ steps:
     - 'gcr.io/$PROJECT_ID/myImage:$COMMIT_SHA'
     - '--region'
     - 'southamerica-west1'
+
+# Indentation corrected here
 images:
-- 'gcr.io/$PROJECT_ID/myImage:$COMMIT_SHA'
+  - 'gcr.io/$PROJECT_ID/myImage:$COMMIT_SHA'
