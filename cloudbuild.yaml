@@ -17,4 +17,4 @@ steps:
     - '--region'
     - 'southamerica-west1'
 images:
- - 'gcr.io/$PROJECT_ID/myImage:$COMMIT_SHA'
+- 'gcr.io/$PROJECT_ID/myImage:$COMMIT_SHA'
