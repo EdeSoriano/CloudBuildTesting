@@ -1,10 +1,10 @@
 steps:
   # Build the container image
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'southamerica-west1-docker.pkg.dev/$PROJECT_ID/repo1/myImage:$COMMIT_SHA', '.']  
+    args: ['build', '-t', 'southamerica-west1-docker.pkg.dev/$PROJECT_ID/repo1/mage:$COMMIT_SHA', '.']  
   # Push the container image to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'southamerica-west1-docker.pkg.dev/$PROJECT_ID/repo1/myImage:$COMMIT_SHA']
+    args: ['push', 'southamerica-west1-docker.pkg.dev/$PROJECT_ID/repo1/mage:$COMMIT_SHA']
   # Deploy container image to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
@@ -13,10 +13,10 @@ steps:
     - 'deploy'
     - 'Service1'
     - '--image'
-    - 'southamerica-west1-docker.pkg.dev/$PROJECT_ID/repo1/myImage'
+    - 'southamerica-west1-docker.pkg.dev/$PROJECT_ID/repo1/mage'
     - '--region'
     - 'southamerica-west1'
 
 # Indentation corrected here
 images:
-  - 'southamerica-west1-docker.pkg.dev/$PROJECT_ID/repo1/myImage:$COMMIT_SHA'
+  - 'southamerica-west1-docker.pkg.dev/$PROJECT_ID/repo1/mage:$COMMIT_SHA'
