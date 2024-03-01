@@ -13,7 +13,7 @@ steps:
     - 'deploy'
     - 'Service1'
     - '--image'
-    - 'southamerica-west1-docker.pkg.dev/$PROJECT_ID/repo1/myImage:$COMMIT_SHA'
+    - 'southamerica-west1-docker.pkg.dev/$PROJECT_ID/repo1/myImage'
     - '--region'
     - 'southamerica-west1'
 
