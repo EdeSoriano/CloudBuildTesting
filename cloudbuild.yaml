@@ -1,8 +1,8 @@
 steps:
-  # Build the container image. Dummy change1
+  # Build the Docker container image.
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'southamerica-west1-docker.pkg.dev/$PROJECT_ID/repo1/mage:$COMMIT_SHA', '.']  
-  # Push the container image to Container Registry
+  # Push the container image to Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'southamerica-west1-docker.pkg.dev/$PROJECT_ID/repo1/mage:$COMMIT_SHA']
   # Deploy container image to Cloud Run
@@ -16,7 +16,5 @@ steps:
     - 'southamerica-west1-docker.pkg.dev/$PROJECT_ID/repo1/mage:$COMMIT_SHA'
     - '--region'
     - 'southamerica-west1'
-
-# Indentation corrected here
 images:
   - 'southamerica-west1-docker.pkg.dev/$PROJECT_ID/repo1/mage:$COMMIT_SHA'
