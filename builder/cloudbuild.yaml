@@ -12,6 +12,6 @@ steps:
 
 
 timeout: '1600s'
-logsBucket: 'gs://gersonh-bucket'
+logsBucket: 'gs://adonay-bucket'
 options:
     logging: GCS_ONLY
