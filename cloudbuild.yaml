@@ -1,17 +1,20 @@
 steps:
-- name: 'gcr.io/cloud-builders/git'
-  args: ['clone', 'https://github.com/gerson-henriquez/testRepository.git']
-
-- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  entrypoint: 'gsutil'
-  args: [ 'cp', '-r', 'testRepository', 'gs://gersonh-bucket']
-
-- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  entrypoint: 'gcloud'
-  args: ['app', 'deploy', '--appyaml=app.yaml']
-
-
-timeout: '1600s'
-logsBucket: 'gs://adonay-bucket'
-options:
-    logging: GCS_ONLY
+  # Build the container image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/myImage:$COMMIT_SHA', '.']
+  # Push the container image to Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/myImage:$COMMIT_SHA']
+  # Deploy container image to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+    - 'run'
+    - 'deploy'
+    - 'Service1'
+    - '--image'
+    - 'gcr.io/$PROJECT_ID/myImage:$COMMIT_SHA'
+    - '--region'
+    - 'southamerica-west1'
+  images:
+  - 'gcr.io/$PROJECT_ID/myImage:$COMMIT_SHA
