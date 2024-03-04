@@ -14,12 +14,12 @@ steps:
   - --network
   - cloudbuild
   # Push the container image to Artifact Registry
-  - name: 'gcr.io/cloud-builders/docker'
-   args: ['push', 'southamerica-west1-docker.pkg.dev/$PROJECT_ID/repo1/mage:$COMMIT_SHA']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'southamerica-west1-docker.pkg.dev/$PROJECT_ID/repo1/mage:$COMMIT_SHA']
   # Deploy container image to Cloud Run
- - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-   entrypoint: gcloud
-    args:
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+args:
     - 'run'
     - 'deploy'
     - 'service1'
