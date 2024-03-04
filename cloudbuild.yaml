@@ -1,6 +1,6 @@
 steps:
   # Build the Docker container image.
-  - name: 'gcr.io/cloud-builders/docker'
+  - name: 'gcr.io/k8s-skaffold/pack'
     args: ['build', '-t', 'southamerica-west1-docker.pkg.dev/$PROJECT_ID/repo1/mage:$COMMIT_SHA', '.']  
   # Push the container image to Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
@@ -18,8 +18,3 @@ steps:
     - 'southamerica-west1'
 images:
   - 'southamerica-west1-docker.pkg.dev/$PROJECT_ID/repo1/mage:$COMMIT_SHA'
-
-timeout: '1600s'
-logsBucket: 'gs://dustox'
-options:
-    logging: GCS_ONLY
