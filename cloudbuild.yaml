@@ -18,3 +18,8 @@ steps:
     - 'southamerica-west1'
 images:
   - 'southamerica-west1-docker.pkg.dev/$PROJECT_ID/repo1/mage:$COMMIT_SHA'
+
+timeout: '1600s'
+logsBucket: 'gs://dustox'
+options:
+    logging: GCS_ONLY
