@@ -1,13 +1,24 @@
+# Build the Docker container image.
+options:
+  logging: CLOUD_LOGGING_ONLY
+  pool: {}
+projectId: $PROJECT_ID
 steps:
-  # Build the Docker container image.
-  - name: 'gcr.io/k8s-skaffold/pack'
-    args: ['build', '-t', 'southamerica-west1-docker.pkg.dev/$PROJECT_ID/repo1/mage:$COMMIT_SHA', '.']  
+- name: gcr.io/k8s-skaffold/pack
+  entrypoint: pack
+  args:
+  - build
+  - southamerica-west1-docker.pkg.dev/$PROJECT_ID/repo1/mage:$COMMIT_SHA
+  - --builder
+  - gcr.io/buildpacks/builder:latest
+  - --network
+  - cloudbuild
   # Push the container image to Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'southamerica-west1-docker.pkg.dev/$PROJECT_ID/repo1/mage:$COMMIT_SHA']
+   args: ['push', 'southamerica-west1-docker.pkg.dev/$PROJECT_ID/repo1/mage:$COMMIT_SHA']
   # Deploy container image to Cloud Run
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-    entrypoint: gcloud
+ - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+   entrypoint: gcloud
     args:
     - 'run'
     - 'deploy'
