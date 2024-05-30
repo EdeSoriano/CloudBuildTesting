@@ -1,4 +1,4 @@
-# Specify how to handle Cloud Build Logging.  Dummy update!
+# Specify how to handle Cloud Build Logging.  Dummy up.
 options:
   logging: CLOUD_LOGGING_ONLY
   pool: {}
